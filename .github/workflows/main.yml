@@ -21,4 +21,5 @@ jobs:
           repository: ${{secrets.repository}}
           # Docker image tag, default to the commit SHA
           tag: ${{github.run_number}}
+          branch: main
     
