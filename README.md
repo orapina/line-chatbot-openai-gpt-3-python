@@ -9,3 +9,7 @@ $ pip install -r requirements.txt
 ```bash
 $ python line_webhook.py
 ```
+
+
+### Quickstart
+[Microsoft Learn: Azure OpenAI]("https://learn.microsoft.com/en-us/azure/cognitive-services/openai/quickstart?pivots=programming-language-python")
