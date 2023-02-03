@@ -1,0 +1,26 @@
+name: Deploy chatbot to app service
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on: [push]
+jobs:
+  build:
+    name: Build Docker image
+    runs-on: ubuntu-latest
+    steps:
+      - name: Azure Container Registry Build
+        uses: Azure/acr-build@v1
+        with:
+          # Service Principal with Contributor role on the ACR
+          service_principal: ${{secrets.servicePrincipal}}
+          # Service Principal password
+          service_principal_password: ${{secrets.servicePrincipalPassword}}
+          # Azure Container Registry tenant
+          tenant: ${{secrets.tenant}}
+          # The name of the ACR, minus the .azurecr.io
+          registry: ${{secrets.registry}}
+          # Repository to use
+          repository: ${{secrets.repository}}
+          # Docker image tag, default to the commit SHA
+          tag: ${{github.run_number}}
+          # The folder in the Github repo that holds the source
+          folder: ./
+    
