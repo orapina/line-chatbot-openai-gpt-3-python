@@ -24,6 +24,16 @@ app = Flask(__name__)
 line_bot_api = LineBotApi(os.getenv("LINE_CHANNEL_ACCESS_TOKEN"))
 handler = WebhookHandler(os.getenv("LINE_CHANNEL_SECRET"))
 
+# Route /message with GET method and q parameter
+@app.route("/message", methods=['GET'])
+def message():
+    # Get query parameter
+    query = request.args.get('q')
+    answer = ask_azure_gpt(query)
+
+    # return answer as json​
+    return jsonify({"question": query, "answer": answer})
+
 @app.route("/direct", methods=['POST'])
 def direct():
     body = request.get_data(as_text=True)
