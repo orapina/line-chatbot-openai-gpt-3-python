@@ -6,10 +6,10 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-openai.api_type = os.getenv("OPENAI_TYPE")
-openai.api_base = os.getenv("OPENAI_BASE_URL")
-openai.api_version = os.getenv("OPENAI_VERSION")
-openai.api_key = os.getenv("OPENAI_KEY")
+openai.api_type = os.getenv("OPENAI_TYPE") #From Go to Azure AI Studio -> Playground then we can use the API into our application 
+openai.api_base = os.getenv("OPENAI_BASE_URL") #From Go to Azure AI Studio -> Playground then we can use the API into our application 
+openai.api_version = os.getenv("OPENAI_VERSION") #From Go to Azure AI Studio -> Playground then we can use the API into our application 
+openai.api_key = os.getenv("OPENAI_KEY") #From Go to Azure AI Studio -> Playground then we can use the API into our application 
 
 completion_engine = os.getenv("OPENAI_COMPLETION_ENGINE")
 
