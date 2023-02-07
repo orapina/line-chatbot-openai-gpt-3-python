@@ -24,6 +24,11 @@ app = Flask(__name__)
 line_bot_api = LineBotApi(os.getenv("LINE_CHANNEL_ACCESS_TOKEN"))
 handler = WebhookHandler(os.getenv("LINE_CHANNEL_SECRET"))
 
+# Route / with GET method return Welcome message
+@app.route("/", methods=['GET'])
+def index():
+    return "Welcome to OpenAI Line Bot"
+
 # Route /message with GET method and q parameter
 @app.route("/message", methods=['GET'])
 def message():
